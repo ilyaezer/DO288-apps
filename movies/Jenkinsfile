@@ -95,7 +95,7 @@ pipeline {
 	   openshift.withCluster() {
 	    openshift.withProjext("${DEV_PROJECT}") {
 	     openshift.selector("dc", "${APP_NAME}").related('pods').untilEach(1) {
-	      return (it.object().status.phase == ""Running)
+	      return (it.object().status.phase == "Running")
 	     }
 	    }
 	   }
